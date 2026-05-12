@@ -23,4 +23,14 @@ describe("HomePage", () => {
       screen.getByRole("link", { name: /contato/i }),
     ).toBeInTheDocument();
   });
+
+  it("renders the approved editorial hero title", () => {
+    render(<HomePage />);
+
+    expect(
+      screen.getByRole("heading", {
+        name: /cuidado com presenca, toque e ritmo natural/i,
+      }),
+    ).toBeInTheDocument();
+  });
 });

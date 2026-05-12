@@ -10,6 +10,7 @@
   --color-ink: #1f1a17;
   --motion-gentle-duration: 240ms;
   --motion-gentle-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-gentle-shift: 0.125rem;
 }
 
 html {
@@ -30,7 +31,8 @@ a {
 
 @media (prefers-reduced-motion: reduce) {
   :root {
-    --motion-gentle-duration: 1ms;
+    --motion-gentle-duration: 0ms;
+    --motion-gentle-shift: 0rem;
   }
 
   html {

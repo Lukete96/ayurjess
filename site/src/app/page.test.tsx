@@ -36,17 +36,28 @@ describe("HomePage", () => {
 
     const headerNav = screen.getByRole("navigation", { name: /principal/i });
     const footer = screen.getByRole("contentinfo");
+    const headerHomeLink = within(headerNav).getByRole("link", {
+      name: /inicio/i,
+    });
+    const footerWhatsAppLink = within(footer).getByRole("link", {
+      name: /agendar pelo whatsapp/i,
+    });
 
-    expect(within(headerNav).getByRole("link", { name: /inicio/i })).toHaveClass(
-      "group",
-      "transition-colors",
+    expect(headerHomeLink).toHaveAttribute(
+      "data-interaction",
+      "calm-link",
     );
-    expect(within(headerNav).getByRole("link", { name: /sobre/i })).toHaveClass(
-      "hover:text-[var(--color-forest)]",
+    expect(headerHomeLink).toHaveAttribute(
+      "data-focus-affordance",
+      "ring",
     );
-    expect(within(footer).getByRole("link", { name: /agendar pelo whatsapp/i })).toHaveClass(
-      "hover:text-white",
+    expect(headerHomeLink).toHaveAttribute("data-reduced-motion", "static");
+    expect(footerWhatsAppLink).toHaveAttribute(
+      "data-interaction",
+      "calm-link",
     );
+    expect(footerWhatsAppLink).toHaveAttribute("data-focus-affordance", "ring");
+    expect(footerWhatsAppLink).toHaveAttribute("data-reduced-motion", "static");
   });
 
   it("renders the approved editorial hero title", () => {

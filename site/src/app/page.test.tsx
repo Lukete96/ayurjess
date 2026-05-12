@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { SiteHeader } from "@/components/layout/site-header";
+import { homeContent } from "@/lib/site-content";
 import HomePage from "./page";
 
 describe("HomePage", () => {
@@ -31,6 +32,15 @@ describe("HomePage", () => {
       screen.getByRole("heading", {
         name: /cuidado com presenca, toque e ritmo natural/i,
       }),
+    ).toBeInTheDocument();
+  });
+
+  it("keeps the hero eyebrow and closing invitation copy on the page", () => {
+    render(<HomePage />);
+
+    expect(screen.getByText(homeContent.hero.eyebrow)).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: homeContent.closing.title }),
     ).toBeInTheDocument();
   });
 });

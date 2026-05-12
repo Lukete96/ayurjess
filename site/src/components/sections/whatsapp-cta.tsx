@@ -22,7 +22,7 @@ export function WhatsAppCta({ title, body }: WhatsAppCtaProps) {
         </GsapReveal>
         <GsapReveal delay={0.32} y={14}>
           <a
-            className="cta-button mt-10 inline-flex min-h-14 items-center justify-center rounded-full bg-[var(--color-forest)] px-8 text-sm font-semibold uppercase tracking-[0.16em]"
+            className="mt-10 inline-flex min-h-14 items-center justify-center rounded-full bg-[var(--color-forest)] px-8 text-sm font-semibold uppercase tracking-[0.16em] shadow-[0_10px_24px_rgba(31,26,23,0.16),inset_0_1px_0_rgba(255,250,244,0.14)] transition-[transform,box-shadow,background-color] duration-300 ease-out hover:-translate-y-[2px] hover:shadow-[0_14px_26px_rgba(31,26,23,0.18),inset_0_1px_0_rgba(255,250,244,0.16)] focus-visible:-translate-y-[2px] focus-visible:shadow-[0_14px_26px_rgba(31,26,23,0.18),inset_0_1px_0_rgba(255,250,244,0.16)] motion-reduce:transform-none motion-reduce:transition-none"
             href={contactConfig.whatsappHref}
             target="_blank"
             rel="noreferrer"

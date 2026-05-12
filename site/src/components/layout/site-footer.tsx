@@ -6,6 +6,11 @@ import {
 } from "@/lib/site-content";
 
 export function SiteFooter() {
+  const footerLinkClassName =
+    "group inline-flex items-center gap-2 rounded-full px-2 py-1 text-[rgba(255,250,244,0.78)] transition-colors duration-[var(--motion-gentle-duration)] ease-[var(--motion-gentle-ease)] hover:text-white focus-visible:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:rgba(255,250,244,0.92)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--color-forest)] motion-reduce:transition-none";
+  const footerLabelClassName =
+    "transition-transform duration-[var(--motion-gentle-duration)] ease-[var(--motion-gentle-ease)] group-hover:translate-x-[var(--motion-gentle-shift)] group-focus-visible:translate-x-[var(--motion-gentle-shift)] motion-reduce:translate-x-0 motion-reduce:transition-none";
+
   return (
     <footer className="bg-[var(--color-forest)] text-[var(--color-surface)]">
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 lg:grid-cols-3 lg:px-10">
@@ -24,7 +29,15 @@ export function SiteFooter() {
           <ul className="mt-4 space-y-3 text-sm">
             {navigationLinks.map((link) => (
               <li key={link.href}>
-                <Link href={link.href}>{link.label}</Link>
+                <Link
+                  href={link.href}
+                  className={footerLinkClassName}
+                  data-interaction="calm-link"
+                  data-focus-affordance="ring"
+                  data-reduced-motion="static"
+                >
+                  <span className={footerLabelClassName}>{link.label}</span>
+                </Link>
               </li>
             ))}
           </ul>
@@ -38,15 +51,27 @@ export function SiteFooter() {
               href={contactConfig.whatsappHref}
               target="_blank"
               rel="noreferrer"
+              className={footerLinkClassName}
+              data-interaction="calm-link"
+              data-focus-affordance="ring"
+              data-reduced-motion="static"
             >
-              {contactConfig.whatsappLabel}
+              <span className={footerLabelClassName}>
+                {contactConfig.whatsappLabel}
+              </span>
             </a>
             <a
               href={contactConfig.instagramHref}
               target="_blank"
               rel="noreferrer"
+              className={footerLinkClassName}
+              data-interaction="calm-link"
+              data-focus-affordance="ring"
+              data-reduced-motion="static"
             >
-              {contactConfig.instagramLabel}
+              <span className={footerLabelClassName}>
+                {contactConfig.instagramLabel}
+              </span>
             </a>
           </div>
         </div>

@@ -53,3 +53,74 @@ export const homeContent = {
       "O primeiro passo nao precisa ser complicado. Basta chamar no WhatsApp para entender melhor a experiencia e tirar duvidas.",
   },
 } as const;
+
+export const aboutContent = {
+  hero: {
+    eyebrow: "Sobre",
+    title: "Ayurveda em uma linguagem mais proxima, sensivel e vivida.",
+    body:
+      "A Ayurjess nasce do desejo de tornar o cuidado mais acessivel, mais encarnado no cotidiano e mais conectado com a escuta do corpo.",
+    videoSrc: "/media/hero-plants.mp4",
+    posterSrc: "/media/hero-poster.svg",
+  },
+  story: {
+    eyebrow: "Jessica",
+    title: "Uma presenca que une acolhimento, estudo e experiencia.",
+    body:
+      "Jessica conduz esse espaco com uma abordagem que valoriza o toque, a atencao e o tempo certo das coisas. O Ayurveda entra como inspiracao para um cuidado mais consciente, aplicavel e humano.",
+    imageSrc: "/media/editorial-plants-2.svg",
+    imageAlt: "Composicao botanica em tons suaves e acolhedores",
+  },
+} as const;
+
+export const servicesContent = {
+  hero: {
+    eyebrow: "Massoterapia",
+    title: "Uma experiencia de toque para aliviar, desacelerar e reorganizar o corpo.",
+    body:
+      "Nesta primeira fase do site, a massagem e o foco central da Ayurjess: uma experiencia pensada para cuidado, presenca e reconexao.",
+    videoSrc: "/media/hero-plants.mp4",
+    posterSrc: "/media/hero-poster.svg",
+  },
+  benefits: {
+    title: "O atendimento pode apoiar voce em diferentes momentos.",
+    items: [
+      {
+        title: "Descanso",
+        body: "Ajuda a criar uma pausa real para o corpo e para a mente.",
+      },
+      {
+        title: "Reconexao",
+        body: "Favorece percepcao corporal, respiracao e presenca.",
+      },
+      {
+        title: "Cuidado",
+        body: "Oferece uma experiencia mais acolhedora e personalizada.",
+      },
+    ],
+  },
+  closing: {
+    title: "Se voce quer entender como funciona, o melhor caminho e conversar.",
+    body:
+      "O WhatsApp funciona como um primeiro contato simples para tirar duvidas, alinhar expectativa e agendar.",
+  },
+} as const;
+
+export const contactPageContent = {
+  hero: {
+    eyebrow: "Contato",
+    title: "Vamos conversar com calma.",
+    body:
+      "Se quiser saber mais sobre a massagem, disponibilidade ou proposta da Ayurjess, o WhatsApp e o canal principal desta fase.",
+    videoSrc: "/media/hero-plants.mp4",
+    posterSrc: "/media/hero-poster.svg",
+  },
+  intro: {
+    eyebrow: "WhatsApp",
+    title: "Um contato simples, direto e acolhedor.",
+    body:
+      "A ideia aqui nao e complicar. E abrir uma conversa para entender o que voce busca e apresentar a experiencia com mais clareza.",
+    imageSrc: "/media/contact-plants.svg",
+    imageAlt: "Ilustracao botanica em tons naturais",
+  },
+} as const;

@@ -1,3 +1,4 @@
+import { GsapReveal } from "@/components/ui/gsap-reveal";
 import { ImagePanel } from "@/components/ui/image-panel";
 
 type EditorialSplitProps = {
@@ -22,18 +23,22 @@ export function EditorialSplit({
       <div
         className={`mx-auto grid max-w-7xl gap-10 lg:grid-cols-2 lg:items-center ${reverse ? "lg:[&>*:first-child]:order-2" : ""}`}
       >
-        <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-saffron)]">
-            {eyebrow}
-          </p>
-          <h2 className="mt-4 font-[family-name:var(--font-display)] text-5xl leading-none lg:text-6xl">
-            {title}
-          </h2>
-          <p className="mt-6 max-w-xl text-base leading-8 text-[rgba(31,26,23,0.78)]">
-            {body}
-          </p>
-        </div>
-        <ImagePanel src={imageSrc} alt={imageAlt} />
+        <GsapReveal delay={0.04} y={20}>
+          <div className="max-w-xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-saffron)]">
+              {eyebrow}
+            </p>
+            <h2 className="mt-4 font-[family-name:var(--font-display)] text-5xl leading-none lg:text-6xl">
+              {title}
+            </h2>
+            <p className="mt-6 text-base leading-8 text-[rgba(31,26,23,0.78)]">
+              {body}
+            </p>
+          </div>
+        </GsapReveal>
+        <GsapReveal delay={0.12} y={16}>
+          <ImagePanel src={imageSrc} alt={imageAlt} />
+        </GsapReveal>
       </div>
     </section>
   );

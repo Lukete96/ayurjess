@@ -87,8 +87,8 @@ describe("GsapReveal", () => {
     expect(fromToMock.mock.calls[0]?.[2]).toEqual({
       autoAlpha: 1,
       delay: 0.15,
-      duration: 0.6,
-      ease: "power2.out",
+      duration: motionDurations.reveal,
+      ease: motionEases.reveal,
       y: 0,
     });
 

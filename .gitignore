@@ -1,0 +1,12 @@
+.worktrees/
+worktrees/
+
+site/node_modules/
+site/.next/
+site/out/
+site/coverage/
+site/.vercel/
+site/.turbo/
+
+Thumbs.db
+.DS_Store

@@ -46,3 +46,19 @@ Essas duas camadas foram reunidas como um mesmo dossie para servir de base de al
 1. Ajuste os arquivos em `spec/` e, se necessario, o arquivo `dist/ayurveda-jessica-dossie-compartilhavel.md`.
 2. Rode `scripts/build_pdf.py`.
 3. O PDF sera regravado em `dist/ayurveda-jessica-dossie-compartilhavel.pdf`.
+
+## Site institucional
+
+O front-end do site fica em `site/`.
+
+Objetivo desta primeira versao:
+
+- replicar o formato editorial aprovado
+- usar placeholders de plantas
+- destacar a massagem e o contato por WhatsApp
+
+Fluxo basico:
+
+1. Entrar em `site/`
+2. Rodar `npm install` se necessario
+3. Rodar `npm run dev`

@@ -5,17 +5,17 @@ type VideoPanelProps = {
 
 export function VideoPanel({ src, poster }: VideoPanelProps) {
   return (
-    <div className="relative min-h-[28rem] overflow-hidden rounded-[2rem] bg-[var(--color-forest)]">
+    <div className="video-panel relative min-h-[24rem] overflow-hidden rounded-[2rem] bg-[var(--color-forest)] lg:min-h-[30rem]">
       <video
         autoPlay
         muted
         loop
         playsInline
-        className="absolute inset-0 h-full w-full object-cover"
+        className="video-panel__media absolute inset-0 h-full w-full object-cover"
         src={src}
         poster={poster}
       />
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(31,26,23,0.08),rgba(31,26,23,0.45))]" />
+      <div className="video-panel__wash absolute inset-0" />
     </div>
   );
 }

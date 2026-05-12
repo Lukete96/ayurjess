@@ -16,10 +16,98 @@ html {
 
 body {
   margin: 0;
+  background: var(--color-background);
+  color: var(--color-ink);
   font-family: var(--font-body), sans-serif;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.hero-eyebrow {
+  color: var(--color-terracotta);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  color: var(--color-ink);
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(3.6rem, 7vw, 6.9rem);
+  letter-spacing: -0.045em;
+  line-height: 0.92;
+  text-wrap: balance;
+}
+
+.hero-body {
+  color: rgba(31, 26, 23, 0.8);
+  font-size: clamp(1rem, 1.1vw + 0.82rem, 1.2rem);
+  line-height: 1.95;
+}
+
+.video-panel {
+  border: 1px solid rgba(255, 250, 244, 0.5);
+  box-shadow:
+    0 22px 48px rgba(31, 26, 23, 0.12),
+    inset 0 1px 0 rgba(255, 250, 244, 0.24);
+}
+
+.video-panel__media {
+  filter: saturate(0.82) contrast(0.92) brightness(0.94);
+  transform: scale(1.01);
+  transition:
+    transform 700ms ease,
+    filter 700ms ease;
+}
+
+.video-panel__wash {
+  background:
+    linear-gradient(180deg, rgba(31, 26, 23, 0.05), rgba(31, 26, 23, 0.32)),
+    linear-gradient(135deg, rgba(246, 240, 231, 0.08), transparent 56%);
+}
+
+.video-panel:hover .video-panel__media,
+.video-panel:focus-within .video-panel__media {
+  filter: saturate(0.86) contrast(0.95) brightness(0.96);
+  transform: scale(1.025);
+}
+
+.cta-button {
+  box-shadow:
+    0 10px 24px rgba(31, 26, 23, 0.16),
+    inset 0 1px 0 rgba(255, 250, 244, 0.14);
+  transition:
+    transform 260ms ease,
+    box-shadow 260ms ease,
+    background-color 260ms ease;
+}
+
+.cta-button:hover,
+.cta-button:focus-visible {
+  box-shadow:
+    0 14px 26px rgba(31, 26, 23, 0.18),
+    inset 0 1px 0 rgba(255, 250, 244, 0.16);
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .video-panel__media,
+  .cta-button {
+    transition: none;
+  }
+
+  .video-panel:hover .video-panel__media,
+  .video-panel:focus-within .video-panel__media,
+  .cta-button:hover,
+  .cta-button:focus-visible {
+    transform: none;
+  }
 }

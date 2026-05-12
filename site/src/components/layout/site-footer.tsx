@@ -6,6 +6,11 @@ import {
 } from "@/lib/site-content";
 
 export function SiteFooter() {
+  const footerLinkClassName =
+    "group inline-flex items-center gap-2 text-[rgba(255,250,244,0.78)] transition-colors duration-[var(--motion-gentle-duration)] ease-[var(--motion-gentle-ease)] hover:text-white focus-visible:text-white focus-visible:outline-none";
+  const footerLabelClassName =
+    "transition-transform duration-[var(--motion-gentle-duration)] ease-[var(--motion-gentle-ease)] group-hover:translate-x-0.5 group-focus-visible:translate-x-0.5";
+
   return (
     <footer className="bg-[var(--color-forest)] text-[var(--color-surface)]">
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 lg:grid-cols-3 lg:px-10">
@@ -24,7 +29,9 @@ export function SiteFooter() {
           <ul className="mt-4 space-y-3 text-sm">
             {navigationLinks.map((link) => (
               <li key={link.href}>
-                <Link href={link.href}>{link.label}</Link>
+                <Link href={link.href} className={footerLinkClassName}>
+                  <span className={footerLabelClassName}>{link.label}</span>
+                </Link>
               </li>
             ))}
           </ul>
@@ -38,15 +45,21 @@ export function SiteFooter() {
               href={contactConfig.whatsappHref}
               target="_blank"
               rel="noreferrer"
+              className={footerLinkClassName}
             >
-              {contactConfig.whatsappLabel}
+              <span className={footerLabelClassName}>
+                {contactConfig.whatsappLabel}
+              </span>
             </a>
             <a
               href={contactConfig.instagramHref}
               target="_blank"
               rel="noreferrer"
+              className={footerLinkClassName}
             >
-              {contactConfig.instagramLabel}
+              <span className={footerLabelClassName}>
+                {contactConfig.instagramLabel}
+              </span>
             </a>
           </div>
         </div>

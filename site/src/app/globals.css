@@ -8,6 +8,8 @@
   --color-terracotta: #cf7a5b;
   --color-saffron: #d9a441;
   --color-ink: #1f1a17;
+  --motion-gentle-duration: 240ms;
+  --motion-gentle-ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 html {
@@ -27,6 +29,10 @@ a {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-gentle-duration: 1ms;
+  }
+
   html {
     scroll-behavior: auto;
   }

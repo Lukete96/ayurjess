@@ -1,4 +1,5 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
+import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { homeContent } from "@/lib/site-content";
 import HomePage from "./page";
@@ -23,6 +24,29 @@ describe("HomePage", () => {
     expect(
       screen.getByRole("link", { name: /contato/i }),
     ).toBeInTheDocument();
+  });
+
+  it("uses calm hover treatments for navigation and footer links", () => {
+    render(
+      <>
+        <SiteHeader />
+        <SiteFooter />
+      </>,
+    );
+
+    const headerNav = screen.getByRole("navigation", { name: /principal/i });
+    const footer = screen.getByRole("contentinfo");
+
+    expect(within(headerNav).getByRole("link", { name: /inicio/i })).toHaveClass(
+      "group",
+      "transition-colors",
+    );
+    expect(within(headerNav).getByRole("link", { name: /sobre/i })).toHaveClass(
+      "hover:text-[var(--color-forest)]",
+    );
+    expect(within(footer).getByRole("link", { name: /agendar pelo whatsapp/i })).toHaveClass(
+      "hover:text-white",
+    );
   });
 
   it("renders the approved editorial hero title", () => {

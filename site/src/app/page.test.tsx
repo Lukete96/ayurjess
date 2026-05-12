@@ -52,12 +52,20 @@ describe("HomePage", () => {
       "ring",
     );
     expect(headerHomeLink).toHaveAttribute("data-reduced-motion", "static");
+    expect(headerHomeLink).toHaveClass(
+      "focus-visible:ring-2",
+      "motion-reduce:transition-none",
+    );
     expect(footerWhatsAppLink).toHaveAttribute(
       "data-interaction",
       "calm-link",
     );
     expect(footerWhatsAppLink).toHaveAttribute("data-focus-affordance", "ring");
     expect(footerWhatsAppLink).toHaveAttribute("data-reduced-motion", "static");
+    expect(footerWhatsAppLink).toHaveClass(
+      "focus-visible:ring-2",
+      "motion-reduce:transition-none",
+    );
   });
 
   it("renders the approved editorial hero title", () => {

@@ -5,7 +5,7 @@ type HighlightItem = {
 
 type HighlightGridProps = {
   title: string;
-  items: HighlightItem[];
+  items: readonly HighlightItem[];
 };
 
 export function HighlightGrid({ title, items }: HighlightGridProps) {

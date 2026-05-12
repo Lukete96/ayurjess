@@ -16,8 +16,12 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Ayurjess",
-  description: "Ayurveda, massoterapia e autocuidado.",
+  title: {
+    default: "Ayurjess",
+    template: "%s | Ayurjess",
+  },
+  description:
+    "Site institucional da Ayurjess com foco em Ayurveda, massoterapia e autocuidado.",
 };
 
 export default function RootLayout({

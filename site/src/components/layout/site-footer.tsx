@@ -1,5 +1,9 @@
 import Link from "next/link";
-import { contactConfig, navigationLinks } from "@/lib/site-content";
+import {
+  contactConfig,
+  footerContent,
+  navigationLinks,
+} from "@/lib/site-content";
 
 export function SiteFooter() {
   return (
@@ -10,8 +14,7 @@ export function SiteFooter() {
             Ayurjess
           </p>
           <p className="mt-4 max-w-sm text-sm leading-7 text-[rgba(255,250,244,0.8)]">
-            Ayurveda, massoterapia e autocuidado em uma experiencia mais calma,
-            sensivel e presente.
+            {footerContent.brandLine}
           </p>
         </div>
         <div>

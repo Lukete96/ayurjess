@@ -124,3 +124,8 @@ export const contactPageContent = {
     imageAlt: "Ilustracao botanica em tons naturais",
   },
 } as const;
+
+export const footerContent = {
+  brandLine:
+    "Ayurveda, massoterapia e autocuidado em uma experiencia mais calma, sensivel e presente.",
+} as const;

@@ -19,7 +19,17 @@ type GsapRevealProps = PropsWithChildren<{
   y?: number;
 }>;
 
-const TEST_ENVIRONMENT = process.env.NODE_ENV === "test";
+function isTestEnvironment() {
+  return process.env.NODE_ENV === "test";
+}
+
+function prefersReducedMotion() {
+  return (
+    typeof window !== "undefined" &&
+    typeof window.matchMedia === "function" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  );
+}
 
 export function GsapReveal({
   children,
@@ -30,7 +40,7 @@ export function GsapReveal({
   const elementRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
-    if (TEST_ENVIRONMENT) {
+    if (isTestEnvironment()) {
       return;
     }
 
@@ -40,12 +50,7 @@ export function GsapReveal({
       return;
     }
 
-    const prefersReducedMotion =
-      typeof window !== "undefined" &&
-      typeof window.matchMedia === "function" &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    if (prefersReducedMotion) {
+    if (prefersReducedMotion()) {
       gsap.set(element, { clearProps: "all" });
       return;
     }

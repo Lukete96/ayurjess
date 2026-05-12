@@ -1,6 +1,12 @@
 import { cleanup, render, screen } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
+import {
+  motionDistances,
+  motionDurations,
+  motionEases,
+} from "@/lib/motion/motion-tokens";
+
 const fromToMock = vi.fn();
 const setMock = vi.fn();
 
@@ -89,5 +95,33 @@ describe("GsapReveal", () => {
     unmount();
 
     expect(killMock).toHaveBeenCalledTimes(1);
+  });
+
+  it("uses the shared reveal tokens by default", async () => {
+    process.env.NODE_ENV = "development";
+    window.matchMedia = vi.fn().mockReturnValue({ matches: false });
+
+    fromToMock.mockReturnValue({ kill: vi.fn() });
+
+    const { GsapReveal } = await import("./gsap-reveal");
+
+    render(
+      <GsapReveal>
+        <span>Token defaults</span>
+      </GsapReveal>,
+    );
+
+    expect(fromToMock).toHaveBeenCalledTimes(1);
+    expect(fromToMock.mock.calls[0]?.[1]).toEqual({
+      autoAlpha: 0,
+      y: motionDistances.revealY,
+    });
+    expect(fromToMock.mock.calls[0]?.[2]).toEqual({
+      autoAlpha: 1,
+      delay: 0,
+      duration: motionDurations.reveal,
+      ease: motionEases.reveal,
+      y: 0,
+    });
   });
 });

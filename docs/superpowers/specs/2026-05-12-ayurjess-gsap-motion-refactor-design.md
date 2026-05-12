@@ -152,6 +152,17 @@ Somente componentes que realmente precisarem de `GSAP` devem virar client compon
 - manter tempos suaves sem degradar leitura
 - nao depender de scroll pesado para a pagina funcionar
 
+### Code Review and Consistency
+
+Durante toda a implementacao, o codigo deve passar por revisoes frequentes para garantir:
+
+- padronizacao visual e estrutural entre componentes
+- consistencia na forma de aplicar animacao, hover e estados visuais
+- organizacao simples e previsivel no codigo
+- funcionamento correto apos cada etapa relevante de alteracao
+
+Essa refatoracao nao deve apenas melhorar a aparencia final do site. Ela tambem deve deixar a base de codigo mais limpa, coesa e segura para evoluir.
+
 ## Implementation Outline
 
 1. Remover a camada atual de reveal/hover que ficou acelerada demais.

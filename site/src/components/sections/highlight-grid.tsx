@@ -22,7 +22,7 @@ export function HighlightGrid({ title, items }: HighlightGridProps) {
         <div className="mt-10 grid gap-6 lg:grid-cols-3">
           {items.map((item, index) => (
             <GsapReveal key={item.title} delay={0.1 + index * 0.06} y={14}>
-              <article className="h-full rounded-[1.75rem] border border-[color:var(--surface-stroke-light)] bg-[rgba(255,250,244,0.06)] p-8 shadow-[var(--panel-shadow-soft)] transition-colors duration-[var(--motion-gentle-duration)] ease-[var(--motion-gentle-ease)] hover:bg-[rgba(255,250,244,0.08)] focus-within:bg-[rgba(255,250,244,0.08)] motion-reduce:transition-none">
+              <article className="h-full rounded-[1.75rem] border border-[rgba(255,250,244,0.14)] bg-[rgba(255,250,244,0.06)] p-8 shadow-[0_18px_40px_rgba(31,26,23,0.1)] transition-colors duration-[var(--motion-gentle-duration)] ease-[var(--motion-gentle-ease)] hover:bg-[rgba(255,250,244,0.08)] motion-reduce:transition-none">
                 <h3 className="font-[family-name:var(--font-display)] text-3xl">
                   {item.title}
                 </h3>

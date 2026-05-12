@@ -8,9 +8,6 @@
   --color-terracotta: #cf7a5b;
   --color-saffron: #d9a441;
   --color-ink: #1f1a17;
-  --surface-stroke: rgba(31, 26, 23, 0.08);
-  --surface-stroke-light: rgba(255, 250, 244, 0.14);
-  --panel-shadow-soft: 0 18px 40px rgba(31, 26, 23, 0.1);
   --motion-gentle-duration: 240ms;
   --motion-gentle-ease: cubic-bezier(0.22, 1, 0.36, 1);
   --motion-gentle-shift: 0.125rem;

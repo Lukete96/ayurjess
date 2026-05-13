@@ -9,6 +9,31 @@ import {
 
 const fromToMock = vi.fn();
 const setMock = vi.fn();
+const observerInstances: MockIntersectionObserver[] = [];
+
+class MockIntersectionObserver {
+  callback: IntersectionObserverCallback;
+  observe = vi.fn();
+  unobserve = vi.fn();
+  disconnect = vi.fn();
+
+  constructor(callback: IntersectionObserverCallback) {
+    this.callback = callback;
+    observerInstances.push(this);
+  }
+
+  trigger(target: Element | null = null, isIntersecting = true) {
+    this.callback(
+      [
+        {
+          isIntersecting,
+          target: target ?? document.createElement("div"),
+        } as IntersectionObserverEntry,
+      ],
+      this as unknown as IntersectionObserver,
+    );
+  }
+}
 
 vi.mock("gsap", () => ({
   gsap: {
@@ -20,8 +45,12 @@ vi.mock("gsap", () => ({
 describe("GsapReveal", () => {
   const originalNodeEnv = process.env.NODE_ENV;
   const originalMatchMedia = window.matchMedia;
+  const originalIntersectionObserver = window.IntersectionObserver;
 
   beforeEach(() => {
+    observerInstances.length = 0;
+    window.IntersectionObserver =
+      MockIntersectionObserver as unknown as typeof IntersectionObserver;
     fromToMock.mockReset();
     setMock.mockReset();
     vi.resetModules();
@@ -30,6 +59,7 @@ describe("GsapReveal", () => {
   afterEach(() => {
     process.env.NODE_ENV = originalNodeEnv;
     window.matchMedia = originalMatchMedia;
+    window.IntersectionObserver = originalIntersectionObserver;
     cleanup();
   });
 
@@ -82,6 +112,8 @@ describe("GsapReveal", () => {
       </GsapReveal>,
     );
 
+    observerInstances[0]?.trigger();
+
     expect(fromToMock).toHaveBeenCalledTimes(1);
     expect(fromToMock.mock.calls[0]?.[1]).toEqual({ autoAlpha: 0, y: 32 });
     expect(fromToMock.mock.calls[0]?.[2]).toEqual({
@@ -111,6 +143,8 @@ describe("GsapReveal", () => {
       </GsapReveal>,
     );
 
+    observerInstances[0]?.trigger();
+
     expect(fromToMock).toHaveBeenCalledTimes(1);
     expect(fromToMock.mock.calls[0]?.[1]).toEqual({
       autoAlpha: 0,
@@ -123,5 +157,26 @@ describe("GsapReveal", () => {
       ease: motionEases.reveal,
       y: 0,
     });
+  });
+
+  it("waits for intersection before running the reveal animation", async () => {
+    process.env.NODE_ENV = "development";
+    window.matchMedia = vi.fn().mockReturnValue({ matches: false });
+
+    fromToMock.mockReturnValue({ kill: vi.fn() });
+
+    const { GsapReveal } = await import("./gsap-reveal");
+
+    render(
+      <GsapReveal>
+        <span>Scroll reveal</span>
+      </GsapReveal>,
+    );
+
+    expect(fromToMock).not.toHaveBeenCalled();
+
+    observerInstances[0]?.trigger();
+
+    expect(fromToMock).toHaveBeenCalledTimes(1);
   });
 });

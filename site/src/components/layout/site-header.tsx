@@ -8,11 +8,11 @@ export function SiteHeader() {
     "transition-transform duration-[var(--motion-gentle-duration)] ease-[var(--motion-gentle-ease)] group-hover:translate-x-[var(--motion-gentle-shift)] group-focus-visible:translate-x-[var(--motion-gentle-shift)] motion-reduce:translate-x-0 motion-reduce:transition-none";
 
   return (
-    <header className="sticky top-0 z-50 border-b border-black/10 bg-[rgba(246,240,231,0.88)] backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-black/8 bg-[var(--color-header)] backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
         <Link
           href="/"
-          className="font-[family-name:var(--font-display)] text-3xl text-[var(--color-forest)]"
+          className="font-[family-name:var(--font-display)] text-3xl text-[var(--color-ink)]"
         >
           Ayurjess
         </Link>

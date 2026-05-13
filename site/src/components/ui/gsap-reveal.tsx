@@ -31,6 +31,24 @@ function prefersReducedMotion() {
   );
 }
 
+function revealElement(
+  element: HTMLDivElement,
+  y: number,
+  delay: number,
+) {
+  return gsap.fromTo(
+    element,
+    { autoAlpha: 0, y },
+    {
+      autoAlpha: 1,
+      delay,
+      duration: motionDurations.reveal,
+      ease: motionEases.reveal,
+      y: 0,
+    },
+  );
+}
+
 export function GsapReveal({
   children,
   className,
@@ -55,20 +73,40 @@ export function GsapReveal({
       return;
     }
 
-    const animation = gsap.fromTo(
-      element,
-      { autoAlpha: 0, y },
+    if (typeof IntersectionObserver === "undefined") {
+      const animation = revealElement(element, y, delay);
+
+      return () => {
+        animation.kill();
+      };
+    }
+
+    let animation: gsap.core.Tween | null = null;
+
+    gsap.set(element, { autoAlpha: 0, y });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+
+        if (!entry?.isIntersecting || animation) {
+          return;
+        }
+
+        animation = revealElement(element, y, delay);
+        observer.unobserve(element);
+      },
       {
-        autoAlpha: 1,
-        delay,
-        duration: motionDurations.reveal,
-        ease: motionEases.reveal,
-        y: 0,
+        threshold: 0.2,
+        rootMargin: "0px 0px -12% 0px",
       },
     );
 
+    observer.observe(element);
+
     return () => {
-      animation.kill();
+      observer.disconnect();
+      animation?.kill();
     };
   }, [delay, y]);
 

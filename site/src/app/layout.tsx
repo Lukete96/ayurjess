@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Montserrat } from "next/font/google";
 import "./globals.css";
+import { BackgroundOrnaments } from "@/components/layout/background-ornaments";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 
@@ -32,6 +33,7 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${cormorant.variable} bg-[var(--color-background)] font-sans text-[var(--color-ink)]`}
       >
+        <BackgroundOrnaments />
         <SiteHeader />
         {children}
         <SiteFooter />

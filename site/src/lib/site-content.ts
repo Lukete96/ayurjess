@@ -9,8 +9,8 @@ export const contactConfig = {
   whatsappHref:
     "https://wa.me/5500000000000?text=Oi%2C%20quero%20saber%20mais%20sobre%20a%20massagem.",
   whatsappLabel: "Agendar pelo WhatsApp",
-  instagramHref: "https://instagram.com/ayurjess",
-  instagramLabel: "@ayurjess",
+  instagramHref: "https://instagram.com/ayur.jess",
+  instagramLabel: "@ayur.jess",
 } as const;
 
 export const homeContent = {

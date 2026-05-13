@@ -1,33 +1,53 @@
-<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="petalWarm" x1="16" y1="38" x2="68" y2="92" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#F2A97E"/>
-      <stop offset="1" stop-color="#E18267"/>
+    <linearGradient id="warmStroke" x1="25" y1="44" x2="108" y2="132" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F7B08B"/>
+      <stop offset="0.52" stop-color="#EA8167"/>
+      <stop offset="1" stop-color="#D96A58"/>
     </linearGradient>
-    <linearGradient id="petalCool" x1="48" y1="20" x2="88" y2="96" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#83D2C7"/>
-      <stop offset="1" stop-color="#4BAA91"/>
+    <linearGradient id="coolStroke" x1="58" y1="22" x2="90" y2="136" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8ADBCB"/>
+      <stop offset="0.58" stop-color="#51B5A3"/>
+      <stop offset="1" stop-color="#37957F"/>
     </linearGradient>
-    <linearGradient id="leafFresh" x1="78" y1="28" x2="118" y2="98" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#A7D46E"/>
-      <stop offset="1" stop-color="#4E9166"/>
+    <linearGradient id="greenStroke" x1="94" y1="38" x2="156" y2="146" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#A9D56B"/>
+      <stop offset="0.5" stop-color="#69AF6B"/>
+      <stop offset="1" stop-color="#3E8058"/>
     </linearGradient>
-    <linearGradient id="accentGold" x1="58" y1="24" x2="86" y2="68" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#F4C66E"/>
-      <stop offset="1" stop-color="#F0A66A"/>
+    <linearGradient id="goldStroke" x1="34" y1="52" x2="130" y2="122" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F5C867"/>
+      <stop offset="1" stop-color="#F0A365"/>
     </linearGradient>
   </defs>
   <g stroke-linecap="round" stroke-linejoin="round">
-    <path d="M24 77C16 62 21 43 39 31C40 47 45 59 57 69C44 76 34 79 24 77Z" stroke="url(#petalWarm)" stroke-width="5.5"/>
-    <path d="M18 71C28 64 39 64 52 72C41 80 30 82 18 71Z" stroke="url(#petalWarm)" stroke-width="5"/>
-    <path d="M54 57C45 44 47 31 60 19C63 34 62 45 54 57Z" stroke="url(#petalCool)" stroke-width="5.5"/>
-    <path d="M72 65C63 50 64 34 78 20C82 39 80 53 72 65Z" stroke="url(#petalWarm)" stroke-width="5.5"/>
-    <path d="M60 50C60 43 64 38 69 38C74 38 78 43 78 50C78 56 73 60 69 62C64 60 60 56 60 50Z" stroke="url(#accentGold)" stroke-width="5"/>
-    <path d="M68 62C59 67 57 75 56 83C62 79 69 79 76 84C76 76 74 69 68 62Z" stroke="url(#petalCool)" stroke-width="5"/>
-    <path d="M83 76C87 57 98 44 112 36C111 56 102 69 83 76Z" stroke="url(#leafFresh)" stroke-width="5.5"/>
-    <path d="M84 70C94 68 102 71 109 79C99 83 90 80 84 70Z" stroke="url(#leafFresh)" stroke-width="5"/>
-    <path d="M44 95C53 84 67 81 88 86C76 96 62 101 44 95Z" stroke="url(#accentGold)" stroke-width="5.5"/>
-    <path d="M33 91C46 108 68 112 93 102C83 98 73 96 63 96C55 95 48 96 42 99" stroke="url(#petalCool)" stroke-width="5.5"/>
-    <path d="M89 92C99 94 105 101 104 111C96 108 92 102 89 92Z" stroke="url(#leafFresh)" stroke-width="5"/>
+    <path d="M39 101C31 87 32 65 47 49C50 64 58 75 75 86" stroke="url(#warmStroke)" stroke-width="6.5"/>
+    <path d="M31 99C44 91 59 93 76 104C59 110 43 109 31 99Z" stroke="url(#warmStroke)" stroke-width="6"/>
+    <path d="M57 75C49 63 49 48 59 35C63 48 63 60 57 75Z" stroke="url(#goldStroke)" stroke-width="5.5"/>
+    <path d="M53 104C43 107 34 106 25 99C33 95 42 94 53 96" stroke="url(#coolStroke)" stroke-width="5.5"/>
+
+    <path d="M74 84C65 62 68 41 82 20C86 44 84 64 74 84Z" stroke="url(#coolStroke)" stroke-width="6.5"/>
+    <path d="M90 92C82 66 84 43 98 23C102 46 101 68 90 92Z" stroke="url(#warmStroke)" stroke-width="6.5"/>
+    <path d="M90 55C90 48 95 43 101 43C107 43 112 48 112 55C112 63 106 69 101 72C95 69 90 63 90 55Z" stroke="url(#goldStroke)" stroke-width="6"/>
+    <path d="M101 73C90 78 84 87 82 99C89 95 97 95 106 100C106 90 105 80 101 73Z" stroke="url(#coolStroke)" stroke-width="6"/>
+    <path d="M85 99C80 116 67 124 52 125C62 118 69 111 73 103" stroke="url(#coolStroke)" stroke-width="6"/>
+
+    <path d="M108 94C112 72 124 55 141 42C139 65 128 81 108 94Z" stroke="url(#warmStroke)" stroke-width="6.5"/>
+    <path d="M116 72C112 61 114 50 123 39C127 51 124 62 116 72Z" stroke="url(#coolStroke)" stroke-width="5.5"/>
+    <path d="M124 66C124 52 130 39 142 27C146 42 143 56 134 68" stroke="url(#warmStroke)" stroke-width="6"/>
+    <path d="M116 101C121 74 137 56 159 44C159 69 147 87 116 101Z" stroke="url(#greenStroke)" stroke-width="6.5"/>
+    <path d="M120 104C132 95 145 97 157 109C143 114 130 112 120 104Z" stroke="url(#greenStroke)" stroke-width="6"/>
+    <path d="M124 84C135 79 145 80 154 88" stroke="url(#greenStroke)" stroke-width="5.5"/>
+    <path d="M151 88C153 78 159 71 168 67C167 77 162 84 151 88Z" stroke="url(#greenStroke)" stroke-width="5"/>
+    <path d="M142 100C150 96 158 97 164 105" stroke="url(#greenStroke)" stroke-width="5.5"/>
+
+    <path d="M55 126C72 112 94 111 122 121C104 131 82 134 55 126Z" stroke="url(#goldStroke)" stroke-width="6.5"/>
+    <path d="M49 123C69 141 99 145 130 133C117 129 104 127 91 127C75 127 62 129 52 133" stroke="url(#coolStroke)" stroke-width="6.5"/>
+    <path d="M113 127C128 124 141 129 151 143C136 145 124 140 113 127Z" stroke="url(#greenStroke)" stroke-width="6"/>
+    <path d="M125 128C140 131 149 141 147 155C137 149 132 140 125 128Z" stroke="url(#greenStroke)" stroke-width="6"/>
+    <path d="M96 108C96 122 90 133 78 141" stroke="url(#warmStroke)" stroke-width="6"/>
+    <path d="M103 108C108 127 117 137 129 143" stroke="url(#greenStroke)" stroke-width="6"/>
+    <path d="M39 67C31 66 25 62 22 54C30 55 36 58 39 67Z" stroke="url(#goldStroke)" stroke-width="5"/>
+    <path d="M155 111C162 107 168 107 173 114" stroke="url(#goldStroke)" stroke-width="5"/>
   </g>
 </svg>

@@ -18,9 +18,9 @@ export function SiteHeader() {
           <Image
             src="/brand/ayurjess-mark.svg"
             alt="Simbolo da marca AyurJess"
-            width={40}
-            height={40}
-            className="h-10 w-10 shrink-0"
+            width={46}
+            height={46}
+            className="h-11 w-11 shrink-0"
             priority
           />
           <span className="font-[family-name:var(--font-display)] text-3xl">

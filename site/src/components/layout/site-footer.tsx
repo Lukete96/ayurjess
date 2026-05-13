@@ -20,9 +20,9 @@ export function SiteFooter() {
             <Image
               src="/brand/ayurjess-mark.svg"
               alt="Simbolo da marca AyurJess"
-              width={44}
-              height={44}
-              className="h-11 w-11 shrink-0"
+              width={52}
+              height={52}
+              className="h-12 w-12 shrink-0"
             />
             <p className="font-[family-name:var(--font-display)] text-4xl">
               AyurJess

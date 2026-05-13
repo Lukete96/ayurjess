@@ -8,5 +8,12 @@ site/coverage/
 site/.vercel/
 site/.turbo/
 
+AyurJess-Fotos-videos/*
+!AyurJess-Fotos-videos/Logo/
+AyurJess-Fotos-videos/Logo/*
+!AyurJess-Fotos-videos/Logo/Logo-AyurJess.jpeg
+!AyurJess-Fotos-videos/Logo/Logo-AyurJess-PB.png
+!AyurJess-Fotos-videos/Logo/Logo-AyurJess-SVG.svg
+
 Thumbs.db
 .DS_Store

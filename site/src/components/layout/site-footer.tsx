@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   contactConfig,
@@ -15,9 +16,18 @@ export function SiteFooter() {
     <footer className="bg-[var(--color-forest)] text-[var(--color-surface)]">
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 lg:grid-cols-3 lg:px-10">
         <div>
-          <p className="font-[family-name:var(--font-display)] text-4xl">
-            Ayurjess
-          </p>
+          <div className="inline-flex items-center gap-3">
+            <Image
+              src="/brand/ayurjess-mark.svg"
+              alt="Simbolo da marca AyurJess"
+              width={44}
+              height={44}
+              className="h-11 w-11 shrink-0"
+            />
+            <p className="font-[family-name:var(--font-display)] text-4xl">
+              AyurJess
+            </p>
+          </div>
           <p className="mt-4 max-w-sm text-sm leading-7 text-[rgba(255,250,244,0.8)]">
             {footerContent.brandLine}
           </p>

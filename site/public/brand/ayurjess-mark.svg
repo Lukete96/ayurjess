@@ -1,0 +1,33 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="petalWarm" x1="16" y1="38" x2="68" y2="92" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F2A97E"/>
+      <stop offset="1" stop-color="#E18267"/>
+    </linearGradient>
+    <linearGradient id="petalCool" x1="48" y1="20" x2="88" y2="96" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#83D2C7"/>
+      <stop offset="1" stop-color="#4BAA91"/>
+    </linearGradient>
+    <linearGradient id="leafFresh" x1="78" y1="28" x2="118" y2="98" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#A7D46E"/>
+      <stop offset="1" stop-color="#4E9166"/>
+    </linearGradient>
+    <linearGradient id="accentGold" x1="58" y1="24" x2="86" y2="68" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F4C66E"/>
+      <stop offset="1" stop-color="#F0A66A"/>
+    </linearGradient>
+  </defs>
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <path d="M24 77C16 62 21 43 39 31C40 47 45 59 57 69C44 76 34 79 24 77Z" stroke="url(#petalWarm)" stroke-width="5.5"/>
+    <path d="M18 71C28 64 39 64 52 72C41 80 30 82 18 71Z" stroke="url(#petalWarm)" stroke-width="5"/>
+    <path d="M54 57C45 44 47 31 60 19C63 34 62 45 54 57Z" stroke="url(#petalCool)" stroke-width="5.5"/>
+    <path d="M72 65C63 50 64 34 78 20C82 39 80 53 72 65Z" stroke="url(#petalWarm)" stroke-width="5.5"/>
+    <path d="M60 50C60 43 64 38 69 38C74 38 78 43 78 50C78 56 73 60 69 62C64 60 60 56 60 50Z" stroke="url(#accentGold)" stroke-width="5"/>
+    <path d="M68 62C59 67 57 75 56 83C62 79 69 79 76 84C76 76 74 69 68 62Z" stroke="url(#petalCool)" stroke-width="5"/>
+    <path d="M83 76C87 57 98 44 112 36C111 56 102 69 83 76Z" stroke="url(#leafFresh)" stroke-width="5.5"/>
+    <path d="M84 70C94 68 102 71 109 79C99 83 90 80 84 70Z" stroke="url(#leafFresh)" stroke-width="5"/>
+    <path d="M44 95C53 84 67 81 88 86C76 96 62 101 44 95Z" stroke="url(#accentGold)" stroke-width="5.5"/>
+    <path d="M33 91C46 108 68 112 93 102C83 98 73 96 63 96C55 95 48 96 42 99" stroke="url(#petalCool)" stroke-width="5.5"/>
+    <path d="M89 92C99 94 105 101 104 111C96 108 92 102 89 92Z" stroke="url(#leafFresh)" stroke-width="5"/>
+  </g>
+</svg>

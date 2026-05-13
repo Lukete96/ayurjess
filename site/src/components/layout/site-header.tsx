@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { navigationLinks } from "@/lib/site-content";
 
@@ -12,9 +13,19 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
         <Link
           href="/"
-          className="font-[family-name:var(--font-display)] text-3xl text-[var(--color-ink)]"
+          className="inline-flex items-center gap-3 rounded-full px-2 py-1 text-[var(--color-ink)] transition-colors duration-[var(--motion-gentle-duration)] ease-[var(--motion-gentle-ease)] hover:text-[var(--color-forest)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-forest)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--color-background)]"
         >
-          Ayurjess
+          <Image
+            src="/brand/ayurjess-mark.svg"
+            alt="Simbolo da marca AyurJess"
+            width={40}
+            height={40}
+            className="h-10 w-10 shrink-0"
+            priority
+          />
+          <span className="font-[family-name:var(--font-display)] text-3xl">
+            AyurJess
+          </span>
         </Link>
         <nav aria-label="Principal">
           <ul className="flex items-center gap-6 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-ink)]">

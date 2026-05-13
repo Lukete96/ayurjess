@@ -15,7 +15,7 @@ export const contactConfig = {
 
 export const homeContent = {
   hero: {
-    eyebrow: "Ayurjess",
+    eyebrow: "AyurJess",
     title: "Cuidado com presenca, toque e ritmo natural.",
     body:
       "Uma experiencia de bem-estar inspirada pelo Ayurveda, pela escuta do corpo e por uma rotina de autocuidado mais consciente.",
@@ -26,7 +26,7 @@ export const homeContent = {
     eyebrow: "Jessica",
     title: "Um espaco para desacelerar e voltar ao corpo.",
     body:
-      "Jessica conduz a Ayurjess como um encontro entre toque, presenca e cuidado. A proposta e acolher o ritmo de cada pessoa com uma experiencia mais sensivel, organica e atenta ao bem-estar real.",
+      "Jessica conduz a AyurJess como um encontro entre toque, presenca e cuidado. A proposta e acolher o ritmo de cada pessoa com uma experiencia mais sensivel, organica e atenta ao bem-estar real.",
     imageSrc: "/media/editorial-plants.svg",
     imageAlt: "Composicao botanica em tons naturais",
   },
@@ -59,7 +59,7 @@ export const aboutContent = {
     eyebrow: "Sobre",
     title: "Ayurveda em uma linguagem mais proxima, sensivel e vivida.",
     body:
-      "A Ayurjess nasce do desejo de tornar o cuidado mais acessivel, mais encarnado no cotidiano e mais conectado com a escuta do corpo.",
+      "A AyurJess nasce do desejo de tornar o cuidado mais acessivel, mais encarnado no cotidiano e mais conectado com a escuta do corpo.",
     videoSrc: "/media/hero-plants.mp4",
     posterSrc: "/media/hero-poster.svg",
   },
@@ -78,7 +78,7 @@ export const servicesContent = {
     eyebrow: "Massoterapia",
     title: "Uma experiencia de toque para aliviar, desacelerar e reorganizar o corpo.",
     body:
-      "Nesta primeira fase do site, a massagem e o foco central da Ayurjess: uma experiencia pensada para cuidado, presenca e reconexao.",
+      "Nesta primeira fase do site, a massagem e o foco central da AyurJess: uma experiencia pensada para cuidado, presenca e reconexao.",
     videoSrc: "/media/hero-plants.mp4",
     posterSrc: "/media/hero-poster.svg",
   },
@@ -111,7 +111,7 @@ export const contactPageContent = {
     eyebrow: "Contato",
     title: "Vamos conversar com calma.",
     body:
-      "Se quiser saber mais sobre a massagem, disponibilidade ou proposta da Ayurjess, o WhatsApp e o canal principal desta fase.",
+      "Se quiser saber mais sobre a massagem, disponibilidade ou proposta da AyurJess, o WhatsApp e o canal principal desta fase.",
     videoSrc: "/media/hero-plants.mp4",
     posterSrc: "/media/hero-poster.svg",
   },

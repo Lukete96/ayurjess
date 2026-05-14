@@ -16,11 +16,11 @@ export function SiteHeader() {
           className="inline-flex items-center gap-3 rounded-full px-2 py-1 text-[var(--color-ink)] transition-colors duration-[var(--motion-gentle-duration)] ease-[var(--motion-gentle-ease)] hover:text-[var(--color-forest)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-forest)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--color-background)]"
         >
           <Image
-            src="/brand/ayurjess-mark.svg"
-            alt="Simbolo da marca AyurJess"
-            width={46}
-            height={46}
-            className="h-11 w-11 shrink-0"
+            src="/media/hero-ayurjess-logo-pb.png"
+            alt="Logo AyurJess em preto e branco"
+            width={52}
+            height={52}
+            className="h-12 w-12 shrink-0 object-contain"
             priority
           />
           <span className="font-[family-name:var(--font-display)] text-3xl">

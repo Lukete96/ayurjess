@@ -12,6 +12,7 @@ concurrency:
 
 permissions:
   contents: read
+  statuses: read
 
 jobs:
   sync-alias:
@@ -19,66 +20,86 @@ jobs:
     runs-on: ubuntu-latest
     env:
       VERCEL_ALIAS: ayurjess.vercel.app
-      VERCEL_PROJECT_ID: prj_NZjlcgucYZRZiOw7sTNdgj0ja4HG
-      VERCEL_TEAM_ID: team_rZSV6AIxwRs5xL7UN5qcv7u8
+      VERCEL_BRANCH_ALIAS: ayurjess-git-main-lukete96s-projects.vercel.app
       VERCEL_SCOPE: lukete96s-projects
     steps:
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
 
-      - name: Wait for Vercel production deployment from this commit
-        id: wait-for-deploy
+      - name: Wait for Vercel to mark this commit as deployed
+        id: wait-for-vercel-status
         env:
           GIT_SHA: ${{ github.sha }}
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
 
-          if [ -z "${VERCEL_TOKEN:-}" ]; then
-            echo "Missing VERCEL_TOKEN GitHub secret." >&2
-            exit 1
-          fi
-
           for attempt in $(seq 1 40); do
             response="$(curl -sS --fail \
-              -H "Authorization: Bearer ${VERCEL_TOKEN}" \
-              "https://api.vercel.com/v6/deployments?projectId=${VERCEL_PROJECT_ID}&teamId=${VERCEL_TEAM_ID}&limit=20&target=production")"
+              -H "Authorization: Bearer ${GITHUB_TOKEN}" \
+              -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${GITHUB_REPOSITORY}/commits/${GIT_SHA}/status")"
 
-            deployment_b64="$(printf '%s' "${response}" \
-              | jq -r --arg sha "${GIT_SHA}" '.deployments[] | select(.meta.gitCommitSha == $sha) | @base64' \
+            vercel_state="$(printf '%s' "${response}" \
+              | jq -r '.statuses[] | select(.context == "Vercel") | .state' \
               | head -n 1)"
 
-            if [ -n "${deployment_b64}" ]; then
-              deployment_json="$(printf '%s' "${deployment_b64}" | base64 --decode)"
-              ready_state="$(printf '%s' "${deployment_json}" | jq -r '.readyState')"
-              deployment_url="$(printf '%s' "${deployment_json}" | jq -r '.url')"
+            vercel_target_url="$(printf '%s' "${response}" \
+              | jq -r '.statuses[] | select(.context == "Vercel") | .target_url' \
+              | head -n 1)"
 
-              echo "Found deployment ${deployment_url} with state ${ready_state}"
+            if [ -n "${vercel_state}" ]; then
+              echo "Found Vercel status ${vercel_state} for ${GIT_SHA}"
+            fi
 
-              if [ "${ready_state}" = "READY" ]; then
-                echo "deployment_url=${deployment_url}" >> "${GITHUB_OUTPUT}"
-                exit 0
-              fi
+            if [ "${vercel_state}" = "success" ]; then
+              echo "vercel_target_url=${vercel_target_url}" >> "${GITHUB_OUTPUT}"
+              exit 0
+            fi
 
-              if [ "${ready_state}" = "ERROR" ] || [ "${ready_state}" = "CANCELED" ]; then
-                echo "Deployment for ${GIT_SHA} finished in unexpected state: ${ready_state}" >&2
-                exit 1
-              fi
+            if [ "${vercel_state}" = "failure" ] || [ "${vercel_state}" = "error" ]; then
+              echo "Vercel reported ${vercel_state} for commit ${GIT_SHA}." >&2
+              exit 1
             fi
 
             echo "Attempt ${attempt}/40: deployment not ready yet, waiting 15s..."
             sleep 15
           done
 
-          echo "Timed out waiting for the Vercel production deployment for commit ${GIT_SHA}." >&2
+          echo "Timed out waiting for Vercel to mark commit ${GIT_SHA} as deployed." >&2
           exit 1
+
+      - name: Resolve current deployment behind main branch alias
+        id: resolve-deployment
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          inspect_output="$(vercel inspect \
+            "${VERCEL_BRANCH_ALIAS}" \
+            --scope "${VERCEL_SCOPE}" \
+            --token "${VERCEL_TOKEN}")"
+
+          printf '%s\n' "${inspect_output}"
+
+          deployment_url="$(printf '%s\n' "${inspect_output}" \
+            | sed -n 's/.*Fetched deployment "\(.*\)" in .*/\1/p' \
+            | head -n 1)"
+
+          if [ -z "${deployment_url}" ]; then
+            echo "Could not resolve the deployment URL from Vercel inspect output." >&2
+            exit 1
+          fi
+
+          echo "deployment_url=${deployment_url}" >> "${GITHUB_OUTPUT}"
 
       - name: Repoint production alias
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
           vercel alias set \
-            "${{ steps.wait-for-deploy.outputs.deployment_url }}" \
+            "${{ steps.resolve-deployment.outputs.deployment_url }}" \
             "${VERCEL_ALIAS}" \
             --scope "${VERCEL_SCOPE}" \
             --token "${VERCEL_TOKEN}"

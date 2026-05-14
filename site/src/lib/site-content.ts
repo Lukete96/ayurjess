@@ -20,15 +20,15 @@ export const homeContent = {
     body:
       "Uma experiencia de bem-estar inspirada pelo Ayurveda, pela escuta do corpo e por uma rotina de autocuidado mais consciente.",
     videoSrc: "/media/hero-plants.mp4",
-    posterSrc: "/media/hero-poster.svg",
+    posterSrc: "/media/jess-home-intro.jpeg",
   },
   intro: {
     eyebrow: "Jessica",
     title: "Um espaco para desacelerar e voltar ao corpo.",
     body:
       "Jessica conduz a AyurJess como um encontro entre toque, presenca e cuidado. A proposta e acolher o ritmo de cada pessoa com uma experiencia mais sensivel, organica e atenta ao bem-estar real.",
-    imageSrc: "/media/jess-home-intro.jpeg",
-    imageAlt: "Jessica em retrato usado na apresentacao da AyurJess",
+    imageSrc: "/media/editorial-plants.svg",
+    imageAlt: "Composicao botanica em tons naturais",
   },
   pillars: {
     title: "Ayurveda, massoterapia e rotina consciente em uma mesma presenca.",

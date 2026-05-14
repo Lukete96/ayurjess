@@ -27,8 +27,8 @@ export const homeContent = {
     title: "Um espaco para desacelerar e voltar ao corpo.",
     body:
       "Jessica conduz a AyurJess como um encontro entre toque, presenca e cuidado. A proposta e acolher o ritmo de cada pessoa com uma experiencia mais sensivel, organica e atenta ao bem-estar real.",
-    imageSrc: "/media/editorial-plants.svg",
-    imageAlt: "Composicao botanica em tons naturais",
+    imageSrc: "/media/jess-home-intro.jpeg",
+    imageAlt: "Jessica em retrato usado na apresentacao da AyurJess",
   },
   pillars: {
     title: "Ayurveda, massoterapia e rotina consciente em uma mesma presenca.",

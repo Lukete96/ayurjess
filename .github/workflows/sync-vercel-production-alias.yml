@@ -1,0 +1,84 @@
+name: Sync Vercel Production Alias
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: vercel-production-alias-main
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  sync-alias:
+    name: Point ayurjess.vercel.app to latest production deploy
+    runs-on: ubuntu-latest
+    env:
+      VERCEL_ALIAS: ayurjess.vercel.app
+      VERCEL_PROJECT_ID: prj_NZjlcgucYZRZiOw7sTNdgj0ja4HG
+      VERCEL_TEAM_ID: team_rZSV6AIxwRs5xL7UN5qcv7u8
+      VERCEL_SCOPE: lukete96s-projects
+    steps:
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+
+      - name: Wait for Vercel production deployment from this commit
+        id: wait-for-deploy
+        env:
+          GIT_SHA: ${{ github.sha }}
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "${VERCEL_TOKEN:-}" ]; then
+            echo "Missing VERCEL_TOKEN GitHub secret." >&2
+            exit 1
+          fi
+
+          for attempt in $(seq 1 40); do
+            response="$(curl -sS --fail \
+              -H "Authorization: Bearer ${VERCEL_TOKEN}" \
+              "https://api.vercel.com/v6/deployments?projectId=${VERCEL_PROJECT_ID}&teamId=${VERCEL_TEAM_ID}&limit=20&target=production")"
+
+            deployment_b64="$(printf '%s' "${response}" \
+              | jq -r --arg sha "${GIT_SHA}" '.deployments[] | select(.meta.gitCommitSha == $sha) | @base64' \
+              | head -n 1)"
+
+            if [ -n "${deployment_b64}" ]; then
+              deployment_json="$(printf '%s' "${deployment_b64}" | base64 --decode)"
+              ready_state="$(printf '%s' "${deployment_json}" | jq -r '.readyState')"
+              deployment_url="$(printf '%s' "${deployment_json}" | jq -r '.url')"
+
+              echo "Found deployment ${deployment_url} with state ${ready_state}"
+
+              if [ "${ready_state}" = "READY" ]; then
+                echo "deployment_url=${deployment_url}" >> "${GITHUB_OUTPUT}"
+                exit 0
+              fi
+
+              if [ "${ready_state}" = "ERROR" ] || [ "${ready_state}" = "CANCELED" ]; then
+                echo "Deployment for ${GIT_SHA} finished in unexpected state: ${ready_state}" >&2
+                exit 1
+              fi
+            fi
+
+            echo "Attempt ${attempt}/40: deployment not ready yet, waiting 15s..."
+            sleep 15
+          done
+
+          echo "Timed out waiting for the Vercel production deployment for commit ${GIT_SHA}." >&2
+          exit 1
+
+      - name: Repoint production alias
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          vercel alias set \
+            "${{ steps.wait-for-deploy.outputs.deployment_url }}" \
+            "${VERCEL_ALIAS}" \
+            --scope "${VERCEL_SCOPE}" \
+            --token "${VERCEL_TOKEN}"

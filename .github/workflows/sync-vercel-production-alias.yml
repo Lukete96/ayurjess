@@ -20,7 +20,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       VERCEL_ALIAS: ayurjess.vercel.app
-      VERCEL_BRANCH_ALIAS: ayurjess-git-main-lukete96s-projects.vercel.app
       VERCEL_SCOPE: lukete96s-projects
     steps:
       - name: Install Vercel CLI
@@ -53,7 +52,14 @@ jobs:
             fi
 
             if [ "${vercel_state}" = "success" ]; then
-              echo "vercel_target_url=${vercel_target_url}" >> "${GITHUB_OUTPUT}"
+              deployment_id="$(printf '%s' "${vercel_target_url}" | sed -E 's#.*/##')"
+
+              if [ -z "${deployment_id}" ]; then
+                echo "Vercel status succeeded but did not expose a deployment ID." >&2
+                exit 1
+              fi
+
+              echo "deployment_id=dpl_${deployment_id}" >> "${GITHUB_OUTPUT}"
               exit 0
             fi
 
@@ -69,37 +75,12 @@ jobs:
           echo "Timed out waiting for Vercel to mark commit ${GIT_SHA} as deployed." >&2
           exit 1
 
-      - name: Resolve current deployment behind main branch alias
-        id: resolve-deployment
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: |
-          set -euo pipefail
-
-          inspect_output="$(vercel inspect \
-            "${VERCEL_BRANCH_ALIAS}" \
-            --scope "${VERCEL_SCOPE}" \
-            --token "${VERCEL_TOKEN}")"
-
-          printf '%s\n' "${inspect_output}"
-
-          deployment_url="$(printf '%s\n' "${inspect_output}" \
-            | sed -n 's/.*Fetched deployment "\(.*\)" in .*/\1/p' \
-            | head -n 1)"
-
-          if [ -z "${deployment_url}" ]; then
-            echo "Could not resolve the deployment URL from Vercel inspect output." >&2
-            exit 1
-          fi
-
-          echo "deployment_url=${deployment_url}" >> "${GITHUB_OUTPUT}"
-
       - name: Repoint production alias
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
           vercel alias set \
-            "${{ steps.resolve-deployment.outputs.deployment_url }}" \
+            "${{ steps.wait-for-vercel-status.outputs.deployment_id }}" \
             "${VERCEL_ALIAS}" \
             --scope "${VERCEL_SCOPE}" \
             --token "${VERCEL_TOKEN}"

@@ -7,7 +7,7 @@ type ImagePanelProps = {
 
 export function ImagePanel({ src, alt }: ImagePanelProps) {
   return (
-    <div className="relative min-h-[28rem] overflow-hidden rounded-[2rem] border border-[rgba(88,117,101,0.12)] bg-[rgba(255,253,248,0.88)] shadow-[0_18px_38px_rgba(36,29,26,0.08)]">
+    <div className="relative min-h-[18rem] overflow-hidden rounded-[1.75rem] border border-[rgba(88,117,101,0.12)] bg-[rgba(255,253,248,0.88)] shadow-[0_18px_38px_rgba(36,29,26,0.08)] sm:min-h-[24rem] sm:rounded-[2rem] lg:min-h-[28rem]">
       <Image
         fill
         src={src}

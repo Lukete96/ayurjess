@@ -82,19 +82,26 @@ export function GsapReveal({
     }
 
     let animation: gsap.core.Tween | null = null;
-
-    gsap.set(element, { autoAlpha: 0, y });
+    let isPrepared = false;
 
     const observer = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
 
-        if (!entry?.isIntersecting || animation) {
+        if (!entry || animation) {
           return;
         }
 
-        animation = revealElement(element, y, delay);
-        observer.unobserve(element);
+        if (entry.isIntersecting) {
+          animation = revealElement(element, y, delay);
+          observer.unobserve(element);
+          return;
+        }
+
+        if (!isPrepared) {
+          gsap.set(element, { autoAlpha: 0, y });
+          isPrepared = true;
+        }
       },
       {
         threshold: 0.2,

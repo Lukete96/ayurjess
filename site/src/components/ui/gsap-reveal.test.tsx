@@ -179,4 +179,30 @@ describe("GsapReveal", () => {
 
     expect(fromToMock).toHaveBeenCalledTimes(1);
   });
+
+  it("only hides elements after confirming they start outside the viewport", async () => {
+    process.env.NODE_ENV = "development";
+    window.matchMedia = vi.fn().mockReturnValue({ matches: false });
+
+    fromToMock.mockReturnValue({ kill: vi.fn() });
+
+    const { GsapReveal } = await import("./gsap-reveal");
+
+    render(
+      <GsapReveal y={28}>
+        <span>Above the fold</span>
+      </GsapReveal>,
+    );
+
+    expect(setMock).not.toHaveBeenCalled();
+
+    observerInstances[0]?.trigger(undefined, false);
+
+    expect(setMock).toHaveBeenCalledTimes(1);
+    expect(setMock.mock.calls[0]?.[1]).toEqual({ autoAlpha: 0, y: 28 });
+
+    observerInstances[0]?.trigger();
+
+    expect(fromToMock).toHaveBeenCalledTimes(1);
+  });
 });

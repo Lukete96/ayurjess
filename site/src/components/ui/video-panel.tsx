@@ -5,7 +5,7 @@ type VideoPanelProps = {
 
 export function VideoPanel({ src, poster }: VideoPanelProps) {
   return (
-    <div className="group relative min-h-[24rem] overflow-hidden rounded-[2rem] border border-[rgba(88,117,101,0.16)] bg-[rgba(255,253,248,0.74)] shadow-[0_20px_44px_rgba(36,29,26,0.08),inset_0_1px_0_rgba(255,253,248,0.24)] lg:min-h-[30rem]">
+    <div className="group relative min-h-[18rem] overflow-hidden rounded-[1.75rem] border border-[rgba(88,117,101,0.16)] bg-[rgba(255,253,248,0.74)] shadow-[0_20px_44px_rgba(36,29,26,0.08),inset_0_1px_0_rgba(255,253,248,0.24)] sm:min-h-[22rem] sm:rounded-[2rem] lg:min-h-[30rem]">
       <video
         autoPlay
         muted

@@ -1,35 +1,46 @@
 @import "tailwindcss";
 
 :root {
-  --color-background: #f7f3ee;
-  --color-surface: #fffdf8;
-  --color-surface-soft: #f4f0eb;
-  --color-surface-muted: #efebe5;
-  --color-forest: #587565;
-  --color-sage: #bfd0c2;
-  --color-terracotta: #d79a83;
-  --color-saffron: #d9b77a;
-  --color-ink: #241d1a;
-  --color-header: rgba(240, 240, 236, 0.88);
+  --color-background: #f8f5f0;
+  --color-surface: #fffaf4;
+  --color-surface-soft: #f3eae0;
+  --color-surface-muted: #f8efe4;
+  --color-primary: #ed6b2f;
+  --color-primary-dark: #c54e18;
+  --color-primary-light: #ffe6d7;
+  --color-accent: #31b6d6;
+  --color-accent-dark: #20859f;
+  --color-accent-light: #d8f8fd;
+  --color-support: #61be4a;
+  --color-support-dark: #3d9330;
+  --color-support-light: #e3f9db;
+  --color-gold: #f9bc3d;
+  --color-gold-dark: #e49911;
+  --color-gold-light: #fff0cc;
+  --color-ink: #352c27;
+  --color-header: rgba(248, 245, 240, 0.92);
   --gradient-hero: linear-gradient(
     180deg,
-    rgba(255, 252, 248, 0.98),
-    rgba(247, 243, 238, 0.94)
+    rgba(255, 250, 244, 0.98),
+    rgba(255, 243, 232, 0.94) 54%,
+    rgba(248, 245, 240, 0.96)
   );
   --gradient-editorial: linear-gradient(
     180deg,
-    rgba(251, 248, 243, 0.96),
-    rgba(241, 246, 241, 0.92)
+    rgba(248, 245, 240, 0.98),
+    rgba(216, 248, 253, 0.34) 54%,
+    rgba(248, 245, 240, 0.94)
   );
   --gradient-highlight: linear-gradient(
     180deg,
-    rgba(224, 235, 228, 0.96),
-    rgba(211, 226, 216, 0.92)
+    rgba(255, 240, 204, 0.48),
+    rgba(227, 249, 219, 0.42) 48%,
+    rgba(248, 245, 240, 0.96)
   );
   --gradient-cta: linear-gradient(
-    180deg,
-    rgba(230, 198, 184, 0.94),
-    rgba(215, 180, 166, 0.9)
+    135deg,
+    rgba(255, 230, 215, 0.96),
+    rgba(255, 240, 204, 0.9)
   );
   --motion-gentle-duration: 240ms;
   --motion-gentle-ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -45,9 +56,9 @@ body {
   margin: 0;
   overflow-x: clip;
   background:
-    radial-gradient(circle at top left, rgba(223, 204, 192, 0.2), transparent 24%),
-    radial-gradient(circle at top right, rgba(191, 208, 194, 0.16), transparent 22%),
-    linear-gradient(180deg, #f9f6f2 0%, #f5f0ea 46%, #f6f2ec 100%);
+    radial-gradient(circle at top left, rgba(237, 107, 47, 0.08), transparent 24%),
+    radial-gradient(circle at top right, rgba(49, 182, 214, 0.08), transparent 22%),
+    linear-gradient(180deg, #fcf8f3 0%, #f8f5f0 46%, #f6efe6 100%);
   color: var(--color-ink);
   font-family: var(--font-body), sans-serif;
 }
@@ -77,8 +88,8 @@ a {
 
 .section-shell--hero::before {
   background:
-    radial-gradient(circle at 14% 20%, rgba(215, 154, 131, 0.08), transparent 18%),
-    radial-gradient(circle at 82% 28%, rgba(191, 208, 194, 0.14), transparent 20%);
+    radial-gradient(circle at 14% 20%, rgba(237, 107, 47, 0.08), transparent 18%),
+    radial-gradient(circle at 82% 28%, rgba(249, 188, 61, 0.1), transparent 20%);
 }
 
 .section-shell--editorial {
@@ -87,8 +98,8 @@ a {
 
 .section-shell--editorial::before {
   background:
-    linear-gradient(90deg, rgba(255, 253, 248, 0.58), transparent 42%),
-    radial-gradient(circle at 78% 34%, rgba(191, 208, 194, 0.16), transparent 22%);
+    linear-gradient(90deg, rgba(255, 250, 244, 0.58), transparent 42%),
+    radial-gradient(circle at 78% 34%, rgba(49, 182, 214, 0.12), transparent 22%);
 }
 
 .section-shell--highlight {
@@ -97,8 +108,8 @@ a {
 
 .section-shell--highlight::before {
   background:
-    linear-gradient(180deg, rgba(255, 253, 248, 0.18), transparent 46%),
-    radial-gradient(circle at 18% 70%, rgba(215, 154, 131, 0.08), transparent 26%);
+    linear-gradient(180deg, rgba(255, 250, 244, 0.18), transparent 46%),
+    radial-gradient(circle at 18% 70%, rgba(97, 190, 74, 0.12), transparent 26%);
 }
 
 .section-shell--cta {
@@ -107,8 +118,8 @@ a {
 
 .section-shell--cta::before {
   background:
-    linear-gradient(180deg, rgba(255, 253, 248, 0.12), transparent 42%),
-    radial-gradient(circle at 50% 18%, rgba(255, 253, 248, 0.18), transparent 26%);
+    linear-gradient(180deg, rgba(255, 250, 244, 0.14), transparent 42%),
+    radial-gradient(circle at 50% 18%, rgba(49, 182, 214, 0.08), transparent 26%);
 }
 
 @media (prefers-reduced-motion: reduce) {

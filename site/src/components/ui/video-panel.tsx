@@ -5,7 +5,7 @@ type VideoPanelProps = {
 
 export function VideoPanel({ src, poster }: VideoPanelProps) {
   return (
-    <div className="group relative min-h-[18rem] overflow-hidden rounded-[1.75rem] border border-[rgba(88,117,101,0.16)] bg-[rgba(255,253,248,0.74)] shadow-[0_20px_44px_rgba(36,29,26,0.08),inset_0_1px_0_rgba(255,253,248,0.24)] sm:min-h-[22rem] sm:rounded-[2rem] lg:min-h-[30rem]">
+    <div className="group relative min-h-[18rem] overflow-hidden rounded-[1.75rem] border border-[rgba(237,107,47,0.14)] bg-[rgba(255,250,244,0.76)] shadow-[0_20px_44px_rgba(53,44,39,0.08),inset_0_1px_0_rgba(255,250,244,0.24)] sm:min-h-[22rem] sm:rounded-[2rem] lg:min-h-[30rem]">
       <video
         autoPlay
         muted
@@ -15,7 +15,7 @@ export function VideoPanel({ src, poster }: VideoPanelProps) {
         src={src}
         poster={poster}
       />
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,253,248,0.1),rgba(36,29,26,0.16)),linear-gradient(135deg,rgba(191,208,194,0.14),transparent_54%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,250,244,0.1),rgba(53,44,39,0.16)),linear-gradient(135deg,rgba(249,188,61,0.1),transparent_54%)]" />
     </div>
   );
 }

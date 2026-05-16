@@ -1,12 +1,12 @@
 export const siteTheme = {
   colors: {
-    background: "#f6f0e7",
+    background: "#f8f5f0",
     surface: "#fffaf4",
-    forest: "#335c45",
-    sage: "#8eb49a",
-    terracotta: "#cf7a5b",
-    saffron: "#d9a441",
-    ink: "#1f1a17",
+    primary: "#ed6b2f",
+    accent: "#31b6d6",
+    support: "#61be4a",
+    gold: "#f9bc3d",
+    ink: "#352c27",
   },
   fonts: {
     body: "Montserrat",

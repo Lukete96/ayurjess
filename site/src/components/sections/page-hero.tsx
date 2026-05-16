@@ -21,7 +21,7 @@ export function PageHero({
       <div className="mx-auto grid max-w-7xl gap-8 sm:gap-10 lg:grid-cols-[minmax(0,1.08fr)_minmax(20rem,0.92fr)] lg:items-center lg:gap-14">
         <div className="max-w-3xl">
           <GsapReveal delay={0.04} y={28}>
-            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-terracotta)]">
+            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-primary)]">
               {eyebrow}
             </p>
           </GsapReveal>

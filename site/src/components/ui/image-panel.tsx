@@ -7,7 +7,7 @@ type ImagePanelProps = {
 
 export function ImagePanel({ src, alt }: ImagePanelProps) {
   return (
-    <div className="relative min-h-[18rem] overflow-hidden rounded-[1.75rem] border border-[rgba(88,117,101,0.12)] bg-[rgba(255,253,248,0.88)] shadow-[0_18px_38px_rgba(36,29,26,0.08)] sm:min-h-[24rem] sm:rounded-[2rem] lg:min-h-[28rem]">
+    <div className="relative min-h-[18rem] overflow-hidden rounded-[1.75rem] border border-[rgba(49,182,214,0.12)] bg-[rgba(255,250,244,0.88)] shadow-[0_18px_38px_rgba(53,44,39,0.08)] sm:min-h-[24rem] sm:rounded-[2rem] lg:min-h-[28rem]">
       <Image
         fill
         src={src}
@@ -16,7 +16,7 @@ export function ImagePanel({ src, alt }: ImagePanelProps) {
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,253,248,0.08),rgba(36,29,26,0.12)),radial-gradient(circle_at_top_right,rgba(191,208,194,0.16),transparent_26%)]"
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,250,244,0.08),rgba(53,44,39,0.12)),radial-gradient(circle_at_top_right,rgba(49,182,214,0.12),transparent_26%)]"
       />
     </div>
   );

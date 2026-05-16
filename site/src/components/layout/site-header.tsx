@@ -8,7 +8,7 @@ import { navigationLinks } from "@/lib/site-content";
 export function SiteHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navLinkClassName =
-    "group inline-flex items-center rounded-full px-2 py-1.5 transition-colors duration-[var(--motion-gentle-duration)] ease-[var(--motion-gentle-ease)] hover:text-[var(--color-forest)] focus-visible:text-[var(--color-forest)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-forest)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--color-background)] motion-reduce:transition-none";
+    "group inline-flex items-center rounded-full px-2 py-1.5 transition-colors duration-[var(--motion-gentle-duration)] ease-[var(--motion-gentle-ease)] hover:text-[var(--color-primary)] focus-visible:text-[var(--color-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-accent-dark)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--color-background)] motion-reduce:transition-none";
   const navLabelClassName =
     "transition-transform duration-[var(--motion-gentle-duration)] ease-[var(--motion-gentle-ease)] group-hover:translate-x-[var(--motion-gentle-shift)] group-focus-visible:translate-x-[var(--motion-gentle-shift)] motion-reduce:translate-x-0 motion-reduce:transition-none";
 
@@ -17,12 +17,12 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-4 lg:px-10">
         <Link
           href="/"
-          className="inline-flex items-center gap-3 rounded-full px-2 py-1 text-[var(--color-ink)] transition-colors duration-[var(--motion-gentle-duration)] ease-[var(--motion-gentle-ease)] hover:text-[var(--color-forest)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-forest)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--color-background)]"
+          className="inline-flex items-center gap-3 rounded-full px-2 py-1 text-[var(--color-ink)] transition-colors duration-[var(--motion-gentle-duration)] ease-[var(--motion-gentle-ease)] hover:text-[var(--color-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-accent-dark)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--color-background)]"
           onClick={() => setIsMenuOpen(false)}
         >
           <Image
-            src="/media/hero-ayurjess-logo-pb.png"
-            alt="Logo AyurJess em preto e branco"
+            src="/brand/ayurjess-logo-colorido.svg"
+            alt="Logo colorida da AyurJess"
             width={52}
             height={52}
             className="h-9 w-9 shrink-0 object-contain sm:h-11 sm:w-11"
@@ -34,7 +34,7 @@ export function SiteHeader() {
         </Link>
         <button
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[rgba(36,29,26,0.12)] text-[var(--color-ink)] transition-colors duration-[var(--motion-gentle-duration)] ease-[var(--motion-gentle-ease)] hover:border-[rgba(88,117,101,0.3)] hover:text-[var(--color-forest)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-forest)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--color-background)] md:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[rgba(53,44,39,0.12)] text-[var(--color-ink)] transition-colors duration-[var(--motion-gentle-duration)] ease-[var(--motion-gentle-ease)] hover:border-[rgba(237,107,47,0.34)] hover:text-[var(--color-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-accent-dark)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--color-background)] md:hidden"
           aria-expanded={isMenuOpen}
           aria-controls="primary-navigation"
           onClick={() => setIsMenuOpen((value) => !value)}

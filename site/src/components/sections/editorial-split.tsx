@@ -25,7 +25,7 @@ export function EditorialSplit({
       >
         <GsapReveal delay={0.08} y={28}>
           <div className="max-w-xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-saffron)]">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-gold-dark)]">
               {eyebrow}
             </p>
             <h2 className="mt-4 font-[family-name:var(--font-display)] text-4xl leading-none sm:text-5xl lg:text-6xl">

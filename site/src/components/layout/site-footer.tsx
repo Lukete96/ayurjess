@@ -8,18 +8,18 @@ import {
 
 export function SiteFooter() {
   const footerLinkClassName =
-    "group inline-flex items-center gap-2 rounded-full px-2 py-1 text-[rgba(255,250,244,0.78)] transition-colors duration-[var(--motion-gentle-duration)] ease-[var(--motion-gentle-ease)] hover:text-white focus-visible:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:rgba(255,250,244,0.92)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--color-forest)] motion-reduce:transition-none";
+    "group inline-flex items-center gap-2 rounded-full px-2 py-1 text-[rgba(255,250,244,0.78)] transition-colors duration-[var(--motion-gentle-duration)] ease-[var(--motion-gentle-ease)] hover:text-white focus-visible:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:rgba(255,250,244,0.92)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--color-ink)] motion-reduce:transition-none";
   const footerLabelClassName =
     "transition-transform duration-[var(--motion-gentle-duration)] ease-[var(--motion-gentle-ease)] group-hover:translate-x-[var(--motion-gentle-shift)] group-focus-visible:translate-x-[var(--motion-gentle-shift)] motion-reduce:translate-x-0 motion-reduce:transition-none";
 
   return (
-    <footer className="bg-[var(--color-forest)] text-[var(--color-surface)]">
+    <footer className="bg-[var(--color-ink)] text-[var(--color-surface)]">
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 lg:grid-cols-3 lg:px-10">
         <div>
           <div className="inline-flex items-center gap-3">
             <Image
-              src="/brand/ayurjess-mark.svg"
-              alt="Simbolo da marca AyurJess"
+              src="/brand/ayurjess-logo-colorido.svg"
+              alt="Logo colorida da AyurJess"
               width={52}
               height={52}
               className="h-12 w-12 shrink-0"

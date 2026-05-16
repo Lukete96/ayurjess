@@ -22,7 +22,7 @@ export function HighlightGrid({ title, items }: HighlightGridProps) {
         <div className="mt-10 grid gap-6 lg:grid-cols-3">
           {items.map((item, index) => (
             <GsapReveal key={item.title} delay={0.26 + index * 0.12} y={20}>
-              <article className="h-full rounded-[1.75rem] border border-[rgba(88,117,101,0.14)] bg-[rgba(255,253,248,0.72)] p-8 shadow-[0_16px_36px_rgba(36,29,26,0.08)] transition-[transform,background-color,box-shadow] duration-[var(--motion-gentle-duration)] ease-[var(--motion-gentle-ease)] hover:-translate-y-[3px] hover:bg-[rgba(255,253,248,0.86)] hover:shadow-[0_22px_40px_rgba(36,29,26,0.1)] motion-reduce:transform-none motion-reduce:transition-none">
+              <article className="h-full rounded-[1.75rem] border border-[rgba(49,182,214,0.14)] bg-[rgba(255,250,244,0.76)] p-8 shadow-[0_16px_36px_rgba(53,44,39,0.08)] transition-[transform,background-color,box-shadow] duration-[var(--motion-gentle-duration)] ease-[var(--motion-gentle-ease)] hover:-translate-y-[3px] hover:bg-[rgba(255,250,244,0.9)] hover:shadow-[0_22px_40px_rgba(53,44,39,0.1)] motion-reduce:transform-none motion-reduce:transition-none">
                 <h3 className="font-[family-name:var(--font-display)] text-3xl">
                   {item.title}
                 </h3>

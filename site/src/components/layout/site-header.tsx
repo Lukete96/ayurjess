@@ -21,8 +21,8 @@ export function SiteHeader() {
           onClick={() => setIsMenuOpen(false)}
         >
           <Image
-            src="/brand/ayurjess-logo-colorido.svg"
-            alt="Logo colorida da AyurJess"
+            src="/brand/ayurjess-logo-monocromatico.svg"
+            alt="Logo monocromatica da AyurJess"
             width={52}
             height={52}
             className="h-9 w-9 shrink-0 object-contain sm:h-11 sm:w-11"

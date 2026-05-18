@@ -7,7 +7,7 @@ export const navigationLinks = [
 
 export const contactConfig = {
   whatsappHref:
-    "https://wa.me/5500000000000?text=Oi%2C%20quero%20saber%20mais%20sobre%20a%20massagem.",
+    "https://wa.me/5561998482187?text=Oii%2C%20vim%20pelo%20seu%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio!%F0%9F%98%8A",
   whatsappLabel: "Agendar pelo WhatsApp",
   instagramHref: "https://instagram.com/ayur.jess",
   instagramLabel: "@ayur.jess",

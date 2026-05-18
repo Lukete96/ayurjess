@@ -1,4 +1,4 @@
-const whatsappMessage = "Oii, vim pelo seu site e gostaria de agendar um horário!😊";
+const whatsappMessage = "Olá! Vim pelo seu site e gostaria de agendar um horário!";
 
 export const navigationLinks = [
   { href: "/", label: "Inicio" },

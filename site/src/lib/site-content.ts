@@ -1,3 +1,5 @@
+const whatsappMessage = "Oii, vim pelo seu site e gostaria de agendar um horário!😊";
+
 export const navigationLinks = [
   { href: "/", label: "Inicio" },
   { href: "/sobre", label: "Sobre" },
@@ -7,7 +9,7 @@ export const navigationLinks = [
 
 export const contactConfig = {
   whatsappHref:
-    "https://wa.me/5561998482187?text=Oii%2C%20vim%20pelo%20seu%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio!%F0%9F%98%8A",
+    `https://wa.me/5561998482187?text=${encodeURIComponent(whatsappMessage)}`,
   whatsappLabel: "Agendar pelo WhatsApp",
   instagramHref: "https://instagram.com/ayur.jess",
   instagramLabel: "@ayur.jess",
